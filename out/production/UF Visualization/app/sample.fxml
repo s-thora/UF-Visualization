@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+
+<AnchorPane styleClass="container" stylesheets="@stylesheet.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
+   <children>
+      <VBox layoutY="1.0" prefHeight="800.0" prefWidth="1000.0" styleClass="container" stylesheets="@stylesheet.css">
+         <children>
+            <Pane prefHeight="200.0" prefWidth="200.0" styleClass="Hspace-5" stylesheets="@stylesheet.css" />
+            <HBox>
+               <children>
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="110.0" prefWidth="600.0" styleClass="header" stylesheets="@stylesheet.css" text="Union-Find Visualization" textAlignment="CENTER" textOverrun="CLIP" />
+                  <Button fx:id="exitBtn" mnemonicParsing="false" onAction="#exit" styleClass="exit" stylesheets="@stylesheet.css" text="Exit" />
+                  <Pane prefHeight="200.0" prefWidth="200.0" styleClass="Vspace-2" stylesheets="@stylesheet.css" />
+               </children>
+            </HBox>
+            <Pane prefHeight="200.0" prefWidth="200.0" styleClass="Hspace-5" stylesheets="@stylesheet.css" />
+            <HBox prefHeight="109.0" prefWidth="1004.0" stylesheets="@stylesheet.css">
+               <children>
+                  <Pane prefHeight="156.0" prefWidth="31.0" styleClass="Vspace-2" stylesheets="@stylesheet.css" />
+                  <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1000.0" styleClass="menu" stylesheets="@stylesheet.css">
+                     <children>
+                        <Label styleClass="menu-label" stylesheets="@stylesheet.css" text="Choose the Union-Find implementation:" />
+                        <HBox prefHeight="100.0" prefWidth="200.0" styleClass="menu-unionfind" stylesheets="@stylesheet.css">
+                           <children>
+                              <VBox prefHeight="200.0" prefWidth="100.0" styleClass="menu-union" stylesheets="@stylesheet.css">
+                                 <children>
+                                    <Label styleClass="menu-label-union" stylesheets="@stylesheet.css" text="Union implementation:" />
+                                    <Button fx:id="implRank" defaultButton="true" mnemonicParsing="false" onAction="#setImplRank" prefHeight="31.0" prefWidth="623.0" stylesheets="@stylesheet.css" text="by Rank" textOverrun="LEADING_ELLIPSIS">
+                                       <font>
+                                          <Font name="Consolas" size="20.0" />
+                                       </font>
+                                       <styleClass>
+                                          <String fx:value="menu-button" />
+                                          <String fx:value="menu-button-active" />
+                                       </styleClass>
+                                    </Button>
+                                    <Button fx:id="implSize" mnemonicParsing="false" onAction="#setImplSize" prefHeight="0.0" prefWidth="600.0" styleClass="menu-button" stylesheets="@stylesheet.css" text="by Size">
+                                       <font>
+                                          <Font name="Consolas" size="20.0" />
+                                       </font>
+                                    </Button>
+                                 </children>
+                              </VBox>
+                              <Pane prefHeight="200.0" prefWidth="200.0" styleClass="Vspace-1" stylesheets="@stylesheet.css" />
+                              <VBox prefHeight="200.0" prefWidth="100.0" styleClass="menu-find" stylesheets="@stylesheet.css">
+                                 <children>
+                                    <Label styleClass="menu-label-find" stylesheets="@stylesheet.css" text="Find implementation:" />
+                                    <Button fx:id="implCompr" defaultButton="true" mnemonicParsing="false" onAction="#setImplCompr" prefHeight="31.0" prefWidth="602.0" stylesheets="@stylesheet.css" text="by Path Compression">
+                                       <font>
+                                          <Font name="Consolas" size="20.0" />
+                                       </font>
+                                       <styleClass>
+                                          <String fx:value="menu-button" />
+                                          <String fx:value="menu-button-active" />
+                                       </styleClass>
+                                    </Button>
+                                    <Button fx:id="implHalf" mnemonicParsing="false" onAction="#setImplHalf" prefHeight="8.0" prefWidth="600.0" styleClass="menu-button" stylesheets="@stylesheet.css" text="by Path Halving" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS">
+                                       <font>
+                                          <Font name="Consolas" size="20.0" />
+                                       </font>
+                                    </Button>
+                                    <Button fx:id="implSplit" mnemonicParsing="false" onAction="#setImplSplit" styleClass="menu-button" stylesheets="@stylesheet.css" text="by Path Splitting" />
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <Pane prefHeight="200.0" prefWidth="200.0" styleClass="Vspace-2" stylesheets="@stylesheet.css" />
+                  <VBox prefHeight="260.0" prefWidth="100.0" styleClass="conf" stylesheets="@stylesheet.css">
+                     <children>
+                        <Label styleClass="conf1-label" stylesheets="@stylesheet.css" text="Number of new nodes:" />
+                        <HBox prefHeight="41.0" prefWidth="399.0">
+                           <children>
+                              <TextField fx:id="createN" styleClass="conf1-input" stylesheets="@stylesheet.css" />
+                              <Pane prefHeight="200.0" prefWidth="200.0" styleClass="Vspace-13" stylesheets="@stylesheet.css" />
+                              <Button fx:id="createBtn" mnemonicParsing="false" onAction="#clickOnCreate" styleClass="conf1-button" stylesheets="@stylesheet.css" text="Create" />
+                           </children>
+                        </HBox>
+                        <Pane prefHeight="200.0" prefWidth="200.0" />
+                        <Label styleClass="conf2-label" stylesheets="@stylesheet.css" text="Two nodes union:" />
+                        <HBox prefHeight="0.0" prefWidth="399.0">
+                           <children>
+                              <TextField fx:id="union1" styleClass="conf2-input1" stylesheets="@stylesheet.css" />
+                              <Pane prefHeight="200.0" prefWidth="200.0" styleClass="Vspace-13" stylesheets="@stylesheet.css" />
+                              <TextField fx:id="union2" styleClass="conf2-input2" stylesheets="@stylesheet.css" />
+                              <Pane prefHeight="200.0" prefWidth="200.0" styleClass="Vspace-13" stylesheets="@stylesheet.css" />
+                              <Button fx:id="unionBtn" mnemonicParsing="false" onAction="#clickOnUnion" styleClass="conf2-button" stylesheets="@stylesheet.css" text="Union" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <Pane prefHeight="200.0" prefWidth="200.0" styleClass="Vspace-2" stylesheets="@stylesheet.css" />
+               </children>
+            </HBox>
+            <Pane prefHeight="200.0" prefWidth="200.0" styleClass="Hspace-5" stylesheets="@stylesheet.css" />
+            <HBox>
+               <children>
+                  <Pane prefHeight="200.0" prefWidth="200.0" styleClass="playground-border" stylesheets="@stylesheet.css" />
+                  <Pane fx:id="playground" prefHeight="200.0" prefWidth="983.0" styleClass="playground" stylesheets="@stylesheet.css" />
+                  <Pane prefHeight="200.0" prefWidth="200.0" styleClass="playground-border" stylesheets="@stylesheet.css" />
+               </children>
+            </HBox>
+            <Label fx:id="log" styleClass="log" stylesheets="@stylesheet.css" />
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
